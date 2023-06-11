@@ -8,6 +8,10 @@ class ClientesController {
     this.clientes.push(cliente);
     res.status(201).json(cliente);
   }
+
+  listar(req, res) {
+    res.json(this.clientes);
+  }
 }
 
 module.exports = new ClientesController();

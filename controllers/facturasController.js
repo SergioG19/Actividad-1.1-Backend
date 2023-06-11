@@ -8,7 +8,10 @@ class FacturasController {
     this.facturas.push(factura);
     res.status(201).json(factura);
   }
-
+  
+  listar(req, res) {
+    res.json(this.facturas);
+  }
 }
 
 module.exports = new FacturasController();

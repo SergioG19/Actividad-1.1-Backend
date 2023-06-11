@@ -9,6 +9,9 @@ class ProductosController {
     res.status(201).json(producto);
   }
 
+  listar(req, res) {
+    res.json(this.productos);
+  }
 }
 
 module.exports = new ProductosController();

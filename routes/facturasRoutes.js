@@ -6,4 +6,8 @@ router.post('/', (req, res) => {
   facturasController.agregar(req, res);
 });
 
+router.get('/', (req, res) => {
+  facturasController.listar(req, res);
+});
+
 module.exports = router;

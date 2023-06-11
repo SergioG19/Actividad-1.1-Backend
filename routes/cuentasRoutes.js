@@ -6,4 +6,8 @@ router.post('/', (req, res) => {
   cuentasController.agregar(req, res);
 });
 
+router.get('/', (req, res) => {
+  cuentasController.listar(req, res);
+});
+
 module.exports = router;
