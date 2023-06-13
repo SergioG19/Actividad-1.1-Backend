@@ -25,7 +25,18 @@ class CuentasController {
       res.json(cuenta);
     }
   }
-}
 
+  eliminar(req, res) {
+    const id = parseInt(req.params.id);
+    const index = this.cuentas.findIndex((c) => c.id === id);
+
+    if (index === -1) {
+      res.status(404).json({ message: 'Cuenta no encontrada' });
+    } else {
+      this.cuentas.splice(index, 1);
+      res.status(204).end();
+    }
+  }
+}
 
 module.exports = new CuentasController();

@@ -25,6 +25,18 @@ class ProductosController {
       res.json(producto);
     }
   }
+
+  eliminar(req, res) {
+    const id = parseInt(req.params.id);
+    const index = this.productos.findIndex((p) => p.id === id);
+
+    if (index === -1) {
+      res.status(404).json({ message: 'Producto no encontrado' });
+    } else {
+      this.productos.splice(index, 1);
+      res.status(204).end();
+    }
+  }
 }
 
 module.exports = new ProductosController();

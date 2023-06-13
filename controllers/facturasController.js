@@ -25,6 +25,18 @@ class FacturasController {
       res.json(factura);
     }
   }
+
+  eliminar(req, res) {
+    const id = parseInt(req.params.id);
+    const index = this.facturas.findIndex((f) => f.id === id);
+
+    if (index === -1) {
+      res.status(404).json({ message: 'Factura no encontrada' });
+    } else {
+      this.facturas.splice(index, 1);
+      res.status(204).end();
+    }
+  }
 }
 
 module.exports = new FacturasController();
