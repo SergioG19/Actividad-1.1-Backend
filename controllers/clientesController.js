@@ -12,6 +12,21 @@ class ClientesController {
   listar(req, res) {
     res.json(this.clientes);
   }
+
+  editar(req, res) {
+    const id = parseInt(req.params.id);
+    const cliente = req.body;
+    const index = this.clientes.findIndex((c) => c.id === id);
+
+    if (index === -1) {
+      res.status(404).json({ message: 'Cliente no encontrado' });
+    } else {
+      this.clientes[index] = cliente;
+      res.json(cliente);
+    }
+  }
+  
 }
+
 
 module.exports = new ClientesController();

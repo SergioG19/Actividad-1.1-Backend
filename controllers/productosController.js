@@ -12,6 +12,19 @@ class ProductosController {
   listar(req, res) {
     res.json(this.productos);
   }
+
+  editar(req, res) {
+    const id = parseInt(req.params.id);
+    const producto = req.body;
+    const index = this.productos.findIndex((p) => p.id === id);
+
+    if (index === -1) {
+      res.status(404).json({ message: 'Producto no encontrado' });
+    } else {
+      this.productos[index] = producto;
+      res.json(producto);
+    }
+  }
 }
 
 module.exports = new ProductosController();
