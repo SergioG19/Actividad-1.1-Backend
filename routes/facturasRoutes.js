@@ -10,4 +10,8 @@ router.get('/', (req, res) => {
   facturasController.listar(req, res);
 });
 
+router.put('/:id', (req, res) => {
+  facturasController.editar(req, res);
+});
+
 module.exports = router;
