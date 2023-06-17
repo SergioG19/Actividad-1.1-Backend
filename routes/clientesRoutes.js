@@ -14,4 +14,8 @@ router.put('/:id', (req, res) => {
   clientesController.editar(req, res);
 });
 
+router.delete('/:id', (req, res) => {
+  clientesController.eliminar(req, res);
+});
+
 module.exports = router;

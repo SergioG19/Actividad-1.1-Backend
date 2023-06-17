@@ -14,4 +14,8 @@ router.put('/:id', (req, res) => {
   facturasController.editar(req, res);
 });
 
+router.delete('/:id', (req, res) => {
+  facturasController.eliminar(req, res);
+});
+
 module.exports = router;
