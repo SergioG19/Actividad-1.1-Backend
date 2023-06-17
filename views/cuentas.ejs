@@ -15,6 +15,18 @@
         <th>Acciones</th>
       </tr>
     </thead>
+    <tbody>
+        <% cuentas.forEach(cuenta => { %>
+          <tr>
+            <td><%= cuenta.id %></td>
+            <td><%= cuenta.nombre %></td>
+            <td>
+              <button onclick="editarCuenta('<%= cuenta.id %>')">Editar</button>
+              <button onclick="eliminarCuenta('<%= cuenta.id %>')">Eliminar</button>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
   </table>
 </body>
 </html>
