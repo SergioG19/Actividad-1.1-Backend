@@ -4,13 +4,19 @@ class FacturasController {
   }
 
   agregar(req, res) {
-    const factura = req.body;
+    const factura = {
+      id: req.body.id,
+      cliente: req.body.cliente,
+      fecha: req.body.fecha,
+      total: req.body.total,
+    };
+
     this.facturas.push(factura);
     res.status(201).json(factura);
   }
-  
-  listar(req, res) {
-    res.json(this.facturas);
+
+  listar() {
+    return this.facturas;
   }
 
   editar(req, res) {
@@ -21,7 +27,8 @@ class FacturasController {
     if (index === -1) {
       res.status(404).json({ message: 'Factura no encontrada' });
     } else {
-      this.facturas[index] = factura;
+      this.facturas.splice(index, 1);
+      this.facturas.push(factura);
       res.json(factura);
     }
   }
@@ -39,4 +46,5 @@ class FacturasController {
   }
 }
 
-module.exports = new FacturasController();
+const facturasController = new FacturasController(); 
+module.exports = facturasController; 
